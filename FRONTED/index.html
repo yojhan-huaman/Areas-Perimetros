@@ -1,0 +1,294 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CALCULADORA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .modal-dialog {
+            margin-left: auto;
+            margin-right: 10%;
+        }
+        label {
+            color: white;
+        }
+    
+        .modal-content {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    
+    <video src="videos/toro.mp4" autoplay="true" muted="true" loop="true"></video>
+    <script>
+        function areaC() {
+            var radio = document.getElementById("radio").value=event.charCode >= 48 && event.charCode <= 57;;
+            var areaC = Math.PI * Math.pow(radio, 2);
+            var area = areaC.toFixed(2);
+            alert("El area es " + area);
+        };
+        function areaT() {
+            var base = parseFloat(document.getElementById("base").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var area = (base * altura) / 2;
+            alert("El area es " + area);
+        }
+        function areaCu() {
+            var lado = parseFloat(document.getElementById("lado").value);
+            var area = Math.pow(lado, 2);
+            alert("El area es " + area);
+        }
+        function areaR() {
+            var base = parseFloat(document.getElementById("base2").value);
+            var altura = parseFloat(document.getElementById("altura2").value);
+            var area = base * altura;
+            alert("El area es " + area);
+        };
+        function PerimetroC() {
+            var radio = parseFloat(document.getElementById("radio1").value);
+            var perimetro1 = Math.PI * radio * 2;
+            var perimetro = perimetro1.toFixed(2);
+            alert("El perimetro es " + perimetro);
+        };
+        function PerimetroT() {
+            var lado1 = parseFloat(document.getElementById("lado1").value);
+            var lado2 = parseFloat(document.getElementById("lado2").value);
+            var lado3 = parseFloat(document.getElementById("lado3").value);
+            var perimetro = (lado1 + lado2 + lado3);
+            alert("El perimetro es " + perimetro);
+        }
+        function PerimetroCu() {
+            var lado = parseFloat(document.getElementById("lado4").value);
+            var perimetro = lado * 4;
+            alert("El perimetro es " + perimetro);
+        }
+        function PerimetroR() {
+            var base = parseFloat(document.getElementById("base1").value);
+            var altura = parseFloat(document.getElementById("altura1").value);
+            var perimetro = (base + altura) * 2;
+            alert("El perimetro es " + perimetro);
+        };
+        function Volver() {
+            location.reload("index.html");
+        };
+    </script>
+    <div style="height: 80px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="index.html">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4">AREAS Y PERIMETROS DE FIGURAS PLANAS</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <h3>AREAS</h3>
+                            <div class="form-group">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#Circulo">Circulo</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#Triangulo">Triangulo</button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#Cuadrado">Cuadrado</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#Rectangulo">Rectangulo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <h3>PERIMETROS</h3>
+                            <div class="form-group">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#Circulo1">Circulo</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#Triangulo1">Triangulo</button>
+                                    <button type="button" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#Cuadrado1">Cuadrado</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#Rectangulo1">Rectangulo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Circulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese el radio</label>
+                        <input type="text" aria-required="true" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" name="radio" id="radio">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular"
+                            onclick="areaC()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#reload" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Triangulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese la altura</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="altura" name="altura">
+                        <label>Ingrese la base</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="base" name="base">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular2"
+                            onclick="areaT()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Cuadrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese el lado</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" name="lado" id="lado">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular3" id="Calcular3"
+                            onclick="areaCu()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Rectangulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese la altura</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="altura2" name="altura">
+                        <label>Ingrese la base</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="base2" name="base">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular4"
+                            onclick="areaR()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="Circulo1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese el radio</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" name="radio" id="radio1">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular5"
+                            onclick="PerimetroC()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Triangulo1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese el primer lado</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="lado1" name="lado">
+                        <label>Ingrese el segundo lado</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="lado2" name="lado">
+                        <label>Ingrese el tercer lado</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="lado3" name="lado">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular"
+                            onclick="PerimetroT()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Cuadrado1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese el lado</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" name="lado" id="lado4">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular"
+                            onclick="PerimetroCu()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Rectangulo1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="form-group">
+                        <label>Ingrese la altura</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="altura1" name="altura1">
+                        <label>Ingrese la base</label>
+                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            class="form-control" id="base1" name="base1">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular"
+                            onclick="PerimetroR()">Calcular</button>
+                        <button class="btn btn-danger" data-toggle="modal" id="reload"
+                            onclick="Volver()">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
